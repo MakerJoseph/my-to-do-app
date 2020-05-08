@@ -1,21 +1,25 @@
 import React, { useState } from 'react';
 import './App.css'; 
 
-function Todo (todo, index, completeTodo, removeTodo  ) {  
+function Todo ( {todo, index, completeTodo, removeTodo} ) {  
+  //the todo componenets returns a list of todos and a feature to complete and remove
+
   return (<div style={{textDecoration: todo.isCompleted ? 'line-through' : ''}}
             className='todo'
          > 
-
-            { todo.text } 
+            {/* test */}
+            {todo.text} 
             <div>
               <button onClick={() => completeTodo(index)}>Complete</button>
               <button onClick={() => removeTodo(index)}>x</button>
             </div>
          </div>
   );
+
 }
 
 function TodoForm ({addTodo}) {
+  //component for inputing a new todo
   const [value, setValue] = useState('');
 
   const handleSubmit = e => {
@@ -23,7 +27,7 @@ function TodoForm ({addTodo}) {
     if(!value) return;
     addTodo(value);
     setValue('');
-  }
+  };
 
   return(
     <form onSubmit={handleSubmit}>
@@ -34,10 +38,11 @@ function TodoForm ({addTodo}) {
       placeholder='Add to do'
       onChange={e => setValue(e.target.value)}/>
     </form>
-  )
+  );
 }
 
-function App() { 
+function App() {    //the app component where we create our state
+
   const [todos, setTodos ] = useState([
     {
       text: "learn about react",
@@ -64,17 +69,23 @@ function App() {
     setTodos(newTodos)
   };
 
-
+  const removeTodo = index => {
+    const newTodos = [...todos];
+    newTodos.splice(index, 1);
+    setTodos(newTodos);
+  };
 
   return(
     <div className = 'app'>
       <div className = 'todo-list'>
         {todos.map((todo, index) => (   
-          <Todo 
+          <Todo
           key={index} 
           index={index} 
           todo={todo}
-          completeTodo={completeTodo} />
+          completeTodo={completeTodo}
+          removeTodo={removeTodo} 
+        />
         ))}
         <TodoForm addTodo={addTodo} />
       </div>
