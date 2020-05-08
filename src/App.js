@@ -9,7 +9,7 @@ function Todo (todo, index, completeTodo, removeTodo  ) {
             { todo.text } 
             <div>
               <button onClick={() => completeTodo(index)}>Complete</button>
-              <button onClick={() => remove  Todo(index)}>x</button>
+              <button onClick={() => removeTodo(index)}>x</button>
             </div>
          </div>
   );
@@ -79,7 +79,7 @@ function App() {
         <TodoForm addTodo={addTodo} />
       </div>
     </div>
-  )
+  );
 }
 
 //creating an arrow function to map the todos
