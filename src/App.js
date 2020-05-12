@@ -53,7 +53,7 @@ function App() {    //the app component where we create our state
       isCompleted: false 
     },
     {
-      text: 'another Todo',
+      text: 'call finance',
       isCompleted: false 
     }
   ]);
