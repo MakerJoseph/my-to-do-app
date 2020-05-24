@@ -20,7 +20,7 @@ function Todo ( {todo, index, completeTodo, removeTodo} ) {
 
 function TodoForm ({addTodo}) {
   //component for inputing a new todo
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState(''); 
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -45,7 +45,7 @@ function App() {    //the app component where we create our state
 
   const [todos, setTodos ] = useState([
     {
-      text: "learn about react",
+      text: "TODO app createdby Jose",
       isCompleted: false 
     },
     {
@@ -58,17 +58,20 @@ function App() {    //the app component where we create our state
     }
   ]);
 
+  //Arrow function for creating new TODO
   const addTodo = text => {
     const newTodos = [...todos, {text}];
     setTodos(newTodos);
   };
 
+  //arrow function for marking TODO complete
   const completeTodo = index => {
     const  newTodos = [...todos];
     newTodos[index].isCompleted = true;
     setTodos(newTodos)
   };
 
+  //Arrow for dleting a TODO
   const removeTodo = index => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
