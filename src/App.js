@@ -71,7 +71,7 @@ function App() {    //the app component where we create our state
     setTodos(newTodos)
   };
 
-  //Arrow for dleting a TODO
+  //Arrow function for dleting a TODO
   const removeTodo = index => {
     const newTodos = [...todos];
     newTodos.splice(index, 1);
@@ -96,6 +96,5 @@ function App() {    //the app component where we create our state
   );
 }
 
-//creating an arrow function to map the todos
 
 export default App;
