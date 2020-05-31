@@ -35,7 +35,7 @@ function TodoForm ({addTodo}) {
       type="text" 
       className='input' 
       value={value} 
-      placeholder='Add to do'
+      placeholder='Add ToDo'
       onChange={e => setValue(e.target.value)}/>
     </form>
   );
